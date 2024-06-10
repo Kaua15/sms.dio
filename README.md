@@ -17,23 +17,9 @@ classDiagram
         +String endereco
         +String telefone
         +String email
-    }
-
-    class Consulta {
-        +Long id
-        +Date data
-        +String hora
-        +String descricao
-        +Paciente paciente
-        +Medico medico
-    }
-
-    class Medico {
-        +Long id
-        +String nome
-        +String especialidade
-        +String telefone
-        +String email
+        +HistoricoMedico historico
+        +Medicamentos medicamentos
+        +RelatorioSaudeAtual saude
     }
 
     class HistoricoMedico {
@@ -52,25 +38,14 @@ classDiagram
         +Paciente paciente
     }
 
-    class Alerta {
-        +Long id
-        +String descricao
-        +Date data
-        +String tipo
-        +Paciente paciente
-    }
-
-    class RelatorioSaude {
+    class RelatorioSaudeAtual {
         +Long id
         +String descricao
         +Date dataGeracao
         +Paciente pacientea
     }
 
-    Paciente "1" -- "*" Consulta : "tem"
-    Consulta "1" -- "1" Medico : "é realizada por"
-    Paciente "1" -- "*" HistoricoMedico : "possui"
-    Paciente "1" -- "*" Medicamento : "usa"
-    Paciente "1" -- "*" Alerta : "recebe"
-    Paciente "1" -- "*" RelatorioSaude : "tem"
+    Paciente "1" *-- "1" HistoricoMedico 
+    Paciente "1" *-- "*" Medicamento
+    Paciente "1" *-- "1" RelatorioSaudeAtual
 ```

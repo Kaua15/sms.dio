@@ -64,7 +64,7 @@ classDiagram
         +Long id
         +String descricao
         +Date dataGeracao
-        +Paciente paciente
+        +Paciente pacientea
     }
 
     Paciente "1" -- "*" Consulta : "tem"
